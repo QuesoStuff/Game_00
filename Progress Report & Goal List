@@ -10,6 +10,7 @@ I was also able to get the charge time to work for shooting in the game, the bli
 
 What to accomplish this week (jan 20-27 2023)
 ** WEEKEND GOALS (20-23)
+- clean up code , delete comments structure it better
 - documentation (design pattern & implementation choices)
 - clean up code of Debug.Log() they slow down performance 
 - research and start profiling game performance/framerate to see how to make the game run smoothly
