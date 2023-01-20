@@ -155,7 +155,8 @@ public class Enemy_Controller : MonoBehaviour
         {
             x = 1;
         }
-        else x = y = 0;
+        else 
+        x = y = 0;
     }
     public void moveCopyDiagonal_2()
     {
@@ -175,7 +176,8 @@ public class Enemy_Controller : MonoBehaviour
         {
             x = 1;
         }
-        else x = y = 0;
+        else 
+        x = y = 0;
     }
     public void moveCopyDiagonalContinue()
     {
@@ -195,11 +197,11 @@ public class Enemy_Controller : MonoBehaviour
         {
             x = 1;
         }
-        else
-        {
-            x = 0;
-            y = 0;
-        }
+        //else
+        //{
+        //    x = 0;
+        //    y = 0;
+        //}
     }
     public void moveCopyDiagonalContinue_2()
     {
@@ -219,11 +221,11 @@ public class Enemy_Controller : MonoBehaviour
         {
             x = 1;
         }
-        else
-        {
-            x = 0;
-            y = 0;
-        }
+        //else
+        //{
+        //    x = 0;
+        //    y = 0;
+        //}
     }
     public void moveCopyReverse()
     {

@@ -245,7 +245,6 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
     {
         player_Moving();
         player_Moving_Diagnol();
-
     }
     public void player_Moving()
     {
