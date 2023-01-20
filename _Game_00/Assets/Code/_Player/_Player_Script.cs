@@ -91,7 +91,7 @@ public class _Player_Script : MAIN_GAME_OBJECT_SCRIPT
         //INPUT.input_charged_Shot_Ready();
         Controller.charged_Shooting();
         Controller.RecordDistance();
-        wrap_around();
+        //wrap_around();
     }
     // Update is called once per frame (for physics and fixed frameRate)
     public void FixedUpdate()

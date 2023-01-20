@@ -117,6 +117,7 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
         }
         if (INPUT.input_move_down() && INPUT.input_move_left())
         {
+            Debug.Log("di-shot D");
             bullet_x = -1;
             bullet_y = -1;
         }
