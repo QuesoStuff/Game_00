@@ -53,7 +53,6 @@ public class INPUT : MonoBehaviour, I_INPUT //, I_other_Interface
     {
         return (Input.GetKey(KeyCode.UpArrow));
     }
-
     public bool input_move_down()
     {
         return (Input.GetKey(KeyCode.DownArrow));
@@ -67,6 +66,39 @@ public class INPUT : MonoBehaviour, I_INPUT //, I_other_Interface
         return (Input.GetKey(KeyCode.RightArrow));
     }
 
+
+    public bool input_shoot_up()
+    {
+        return (Input.GetKey(KeyCode.UpArrow));
+    }
+    public bool input_shoot_down()
+    {
+        return (Input.GetKey(KeyCode.DownArrow));
+    }
+    public bool input_shoot_left()
+    {
+        return (Input.GetKey(KeyCode.LeftArrow));
+    }
+    public bool input_shoot_right()
+    {
+        return (Input.GetKey(KeyCode.RightArrow));
+    }
+    public bool input_shoot_up_release()
+    {
+        return (Input.GetKeyUp(KeyCode.UpArrow));
+    }
+    public bool input_shoot_down_release()
+    {
+        return (Input.GetKeyUp(KeyCode.DownArrow));
+    }
+    public bool input_shoot_left_release()
+    {
+        return (Input.GetKeyUp(KeyCode.LeftArrow));
+    }
+    public bool input_shoot_right_release()
+    {
+        return (Input.GetKeyUp(KeyCode.RightArrow));
+    }
     public bool input_shoot()
     {
         return (Input.GetKeyDown(KeyCode.Space));
@@ -119,6 +151,7 @@ public class INPUT : MonoBehaviour, I_INPUT //, I_other_Interface
             timer = Time.time;
             if (Time.time - inputTime <= time_frame)
             {
+
                 return true;
             }
         }

@@ -84,9 +84,10 @@ public class _Player_Script : MAIN_GAME_OBJECT_SCRIPT
     // Update is called once per frame
     public void Update()
     {
+        //Controller.player_Moving();  ultimate_direction_input
+        Controller.ultimate_Player_Moving();
         Controller.playerDash();
-        Controller.player_Moving();
-        Controller.ultimate_shot();
+        Controller.ultimate_Player_Shooting();
         Controller.shooting();
         //INPUT.input_charged_Shot_Ready();
         Controller.charged_Shooting();

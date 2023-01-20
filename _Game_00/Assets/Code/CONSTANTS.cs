@@ -7,6 +7,8 @@ public static class CONSTANTS //: MonoBehaviour
 {
     //  MOVEMENTS (X-axis & Y-axis Movements)
     public const int MOVE_DEFAULT_SPEED = 5;
+    public const float MOVE_DEFAULT_SPEED_DIAGONAL = 3.53553390593f; // (5 / sqrt(2))
+
     public const float DASH_TIME = 0.33f;
     public const float DASH_TIME_QUICK = 0.05f;
     public const float CHARGED_SHOT_TIME = 1.8f;

@@ -9,12 +9,17 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
     [SerializeField] internal Player_Input INPUT;
     [SerializeField] internal _Player_Script mainScript;
     // movement
-    [SerializeField] internal int x;
-    [SerializeField] internal int y;
+    [SerializeField] internal float x;
+    [SerializeField] internal float y;
     [SerializeField] internal int currSpeed_up;
     [SerializeField] internal int currSpeed_down;
     [SerializeField] internal int currSpeed_left;
     [SerializeField] internal int currSpeed_right;
+
+    [SerializeField] internal float currSpeed_up_diagonal;
+    [SerializeField] internal float currSpeed_down_diagonal;
+    [SerializeField] internal float currSpeed_left_diagonal;
+    [SerializeField] internal float currSpeed_right_diagonal;
     // dashing movement
     [SerializeField] internal bool canDash;
     [SerializeField] internal bool isDashing;
@@ -59,6 +64,8 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
         setRef();
         x = y = 0;
         currSpeed_down = currSpeed_up = currSpeed_left = currSpeed_right = CONSTANTS.MOVE_DEFAULT_SPEED;
+        currSpeed_down_diagonal = currSpeed_up_diagonal = currSpeed_left_diagonal = currSpeed_right_diagonal = CONSTANTS.MOVE_DEFAULT_SPEED / Mathf.Sqrt(2.0f);
+
         canDash = true;
         isDashing = false;
         dashSpeed = 10;
@@ -79,60 +86,167 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
 
 
 
+    public void all_shot()
+    {
+        if (INPUT.input_shoot_up())
+        {
+            bullet_y = 1;
+        }
+        else if (INPUT.input_shoot_down())
+        {
+            bullet_y = -1;
+        }
+        if (INPUT.input_shoot_left())
+        {
+            bullet_x = -1;
+        }
+        else if (INPUT.input_shoot_right())
+        {
+            bullet_x = 1;
+        }
+        if (INPUT.input_shoot_up_release() || INPUT.input_shoot_down_release())
+        {
+            bullet_y = 0;
+        }
+        if (INPUT.input_shoot_left_release() || INPUT.input_shoot_right_release())
+        {
+            bullet_x = 0;
+        }
+    }
 
     public void straight_shot()
     {
-        if (INPUT.input_move_up())
+        if (INPUT.input_shoot_up())
         {
             bullet_x = 0;
             bullet_y = 1;
+            Debug.Log(" straight UP");
         }
-        else if (INPUT.input_move_down())
+        else if (INPUT.input_shoot_down())
         {
+            bullet_x = 0;
+            bullet_y = -1;
+            Debug.Log(" straight DOWN");
+        }
+        if (INPUT.input_shoot_left())
+        {
+            bullet_x = -1;
+            bullet_y = 0;
+            Debug.Log(" straight LEFT");
+        }
+        else if (INPUT.input_shoot_right())
+        {
+            bullet_x = 1;
+            bullet_y = 0;
+            Debug.Log(" straight RIGHT");
+        }
+    }
+    public void diagnol_shot()
+    {
+        if (INPUT.input_shoot_up() && INPUT.input_shoot_left())
+        {
+            bullet_x = -1;
+            bullet_y = 1;
+            Debug.Log(" DI - UP + LEFT ");
+        }
+         if (INPUT.input_shoot_up() && INPUT.input_shoot_right())
+        {
+            bullet_x = 1;
+            bullet_y = 1;
+            Debug.Log(" DI - UP + RIGHT ");
+        }
+         if (INPUT.input_shoot_down() && INPUT.input_shoot_left())
+        {
+            bullet_x = -1;
+            bullet_y = -1;
+            Debug.Log(" DI - DOWN + LEFT ");
+        }
+         if (INPUT.input_shoot_down() && INPUT.input_shoot_right())
+        {
+            bullet_x = 1;
+            bullet_y = -1;
+            Debug.Log(" DI - DOWN + RIGHT");
+        }
+    }
+    public void ultimate_Player_Shooting()
+    {
+        // the most reliable approach thus far
+       // straight_shot();
+        diagnol_shot();
+
+        // this sequence does some funky things
+        //diagnol_shot();
+        //straight_shot();
+
+        // latest attempt (the bullet stops when you release buttons)
+        //all_shot();
+    }
+    public void ultimate_direction_input()
+    {
+        x = y = 0;
+        if (INPUT.input_move_up())
+        {
+            x = 0;
+            y = currSpeed_up;
+            bullet_x = 0;
+            bullet_y = 1;
+        }
+        if (INPUT.input_move_down())
+        {
+            x = 0;
+            y = -currSpeed_down;
             bullet_x = 0;
             bullet_y = -1;
         }
         if (INPUT.input_move_left())
         {
+            x = -currSpeed_left;
+            y = 0;
             bullet_x = -1;
             bullet_y = 0;
         }
-        else if (INPUT.input_move_right())
+        if (INPUT.input_move_right())
         {
+            x = currSpeed_right;
+            y = 0;
             bullet_x = 1;
             bullet_y = 0;
         }
-    }
-    public void diagnol_shot()
-    {
         if (INPUT.input_move_up() && INPUT.input_move_left())
         {
+            x = -currSpeed_left_diagonal;
+            y = currSpeed_up_diagonal;
             bullet_x = -1;
             bullet_y = 1;
         }
-        else if (INPUT.input_move_up() && INPUT.input_move_right())
+        if (INPUT.input_move_up() && INPUT.input_move_right())
         {
+            x = currSpeed_left_diagonal;
+            y = currSpeed_up_diagonal;
             bullet_x = 1;
             bullet_y = 1;
         }
         if (INPUT.input_move_down() && INPUT.input_move_left())
         {
-            Debug.Log("di-shot D");
+            x = -currSpeed_left_diagonal;
+            y = -currSpeed_up_diagonal;
             bullet_x = -1;
             bullet_y = -1;
         }
-        else if (INPUT.input_move_down() && INPUT.input_move_right())
+        if (INPUT.input_move_down() && INPUT.input_move_right())
         {
+            x = currSpeed_left_diagonal;
+            y = -currSpeed_up_diagonal;
             bullet_x = 1;
             bullet_y = -1;
         }
     }
-    public void ultimate_shot()
+    public void ultimate_Player_Moving()
     {
-        straight_shot();
-        diagnol_shot();
-    }
+        player_Moving();
+        player_Moving_Diagnol();
 
+    }
     public void player_Moving()
     {
         x = y = 0;
@@ -157,7 +271,32 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
             y = 0;
         }
     }
+    // new diagnol Jan 19th
     public void player_Moving_Diagnol() // input inside update , move inside of fixed
+    {
+        //x = y = 0;
+        if (INPUT.input_move_up() && INPUT.input_move_left())
+        {
+            x = -currSpeed_left_diagonal;
+            y = currSpeed_up_diagonal;
+        }
+        else if (INPUT.input_move_up() && INPUT.input_move_right())
+        {
+            x = currSpeed_left_diagonal;
+            y = currSpeed_up_diagonal;
+        }
+        else if (INPUT.input_move_down() && INPUT.input_move_left())
+        {
+            x = -currSpeed_left_diagonal;
+            y = -currSpeed_up_diagonal;
+        }
+        else if (INPUT.input_move_down() && INPUT.input_move_right())
+        {
+            x = currSpeed_left_diagonal;
+            y = -currSpeed_up_diagonal;
+        }
+    }
+    public void player_Moving_Diagnol_() // input inside update , move inside of fixed
     {
         x = y = 0;
         if (INPUT.input_move_up())
@@ -181,6 +320,8 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
     {
         if (INPUT.input_shoot())
         {
+            mainScript.bullet_shot_Count++; // jan 19th
+            Debug.Log("shooting");
             var x = bullet_x;
             var y = bullet_y;
             bulletPosition = transform.position;
@@ -193,6 +334,10 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
                 mainScript.SFX.audioShoot_0();
             else
                 mainScript.SFX.audioShoot_1();
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Debug.Log("TRIGGER RELEASE");
         }
     }
     public void charged_Shooting()
@@ -227,7 +372,9 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
     }
     public void player_Move_Fixed()
     {
-        rb2d.velocity = new Vector2(x, y);
+        Vector2 direction = new Vector2(x, y);
+        //direction = direction.normalized;
+        rb2d.velocity = direction;
     }
     public IEnumerator Dash(int dashSpeed, float time)
     {
@@ -239,11 +386,14 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
         mainScript.ex.explosionCreateConsant(explosion_ref, transform.position, spriterender.color);
         //rb2d.AddForce(dash * rb2d.velocity);
         currSpeed_down = currSpeed_up = currSpeed_left = currSpeed_right = dashSpeed;
+        currSpeed_down_diagonal = currSpeed_up_diagonal = currSpeed_left_diagonal = currSpeed_right_diagonal = dashSpeed / Mathf.Sqrt(2.0f);
+
         //tr.emitting = true;
         yield return new WaitForSeconds(time);
         //tr.emitting = false;
         isDashing = false;
         currSpeed_down = currSpeed_up = currSpeed_left = currSpeed_right = CONSTANTS.MOVE_DEFAULT_SPEED;
+        currSpeed_down_diagonal = currSpeed_up_diagonal = currSpeed_left_diagonal = currSpeed_right_diagonal = CONSTANTS.MOVE_DEFAULT_SPEED_DIAGONAL;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
         //mainScript.Color.resetColor();
