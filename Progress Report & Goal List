@@ -1,0 +1,33 @@
+# Game_00
+
+January 20th 2023
+- Week 01 Summary
+
+Finally got back into the swing of things of the game dev. I have come to realize that the issue with the diagonal shooting is not with my code implementation but a hardware design restriction with the keyboard I am testing with (Rollover Keyboard issue).
+In response, I have decided to keep moving and shooting 4-directional for the time being. 
+
+I was also able to get the charge time to work for shooting in the game, the blinking now occurs when ready to shoot, and another change when a shot has been fired. I also adjusted the explosion function so that the dash explosion is a bit more consistent, the duration is relevant to the dash speed sound
+
+What to accomplish this week (jan 20-27 2023)
+** WEEKEND GOALS (20-23)
+- clean up code , delete comments structure it better
+- documentation (design pattern & implementation choices)
+- clean up code of Debug.Log() they slow down performance 
+- research and start profiling game performance/framerate to see how to make the game run smoothly
+** make stand alone inf score based survivor game based on current code base
+* GENERAL
+- figure out a file save system with high score mini-game approach
+- generalize save feature
+- add bullet shot count in UI
+* PLAYER RELATED 
+- adjust and tweak the dash to dash feel more responsive
+- make dash explosion length of sound effect for accurate feel
+- implement faster but trickier dash
+* ENEMY RELATED
+- make a test room with an enemy to try out all enemy movement configs & tweak if necessary
+- Adjust enemy aggro in a collision (make it faster / slower in response)
+* GAME ROOM
+- start sketching and make one tutorial level 
+* EXTRA
+- look into glow-in-the-dark assets to give the game a better look
+
