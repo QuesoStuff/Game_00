@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 938307523696892252}
   - component: {fileID: 938307523696892241}
   - component: {fileID: 938307523696892242}
-  - component: {fileID: 9149933332752040825}
+  - component: {fileID: 938307523696892240}
   m_Layer: 5
   m_Name: enemy kill count
   m_TagString: Untagged
@@ -293,7 +293,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Kill
---- !u!114 &9149933332752040825
+--- !u!114 &938307523696892240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 938307523696892253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1ec8f323d4e7354ea11d296cc21180b, type: 3}
+  m_Script: {fileID: 11500000, guid: 63a31452e78da6f4882cf3dc3263368f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 938307524924024505}
   - component: {fileID: 938307524924024510}
   - component: {fileID: 938307524924024511}
-  - component: {fileID: 8884306827035672362}
+  - component: {fileID: 938307524924024509}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -397,7 +397,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Score
---- !u!114 &8884306827035672362
+--- !u!114 &938307524924024509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 938307524924024506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c3b8aedd418d14d90c5081293ef763, type: 3}
+  m_Script: {fileID: 11500000, guid: daf564311fb22f64dba45943aee66cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 0}
@@ -420,8 +420,13 @@ MonoBehaviour:
     MAX_BULLET_COUNT: 0
   newSaveData: 0
   playerScript: {fileID: 0}
-  Color_Score_10: {r: 0, g: 0, b: 0, a: 0}
-  score: 0
+  min: 0
+  sec: 0
+  flashTImer: 0
+  currTime: 0
+  timer_Color_Half: {r: 0, g: 0, b: 0, a: 0}
+  timer_Color_Quarter: {r: 0, g: 0, b: 0, a: 0}
+  timer_End_Less_Than_60_SEC: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &938307524942708600
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +438,7 @@ GameObject:
   - component: {fileID: 938307524942708607}
   - component: {fileID: 938307524942708604}
   - component: {fileID: 938307524942708605}
-  - component: {fileID: 4523505079482889899}
+  - component: {fileID: 3532920524372146134}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -503,7 +508,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Clock
---- !u!114 &4523505079482889899
+--- !u!114 &3532920524372146134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -512,7 +517,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 938307524942708600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2f23337c8b245b4599156eb42e61132, type: 3}
+  m_Script: {fileID: 11500000, guid: daf564311fb22f64dba45943aee66cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 0}
