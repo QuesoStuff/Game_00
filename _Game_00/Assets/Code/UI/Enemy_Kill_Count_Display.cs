@@ -6,17 +6,16 @@ using UnityEngine.UI;
 public class Enemy_Kill_Count_Display : GENERIC_UI
 {
 
-    [SerializeField] internal static float killCount;
 
     // Use this for initialization
     new void set()
     {
         base.set();
-        textBox.text = "X: " + killCount.ToString();
+        textBox.text = "X: " + playerScript.killCount.ToString();
     }
     void display()
     {
-        textBox.text = "X: " + killCount.ToString();
+        textBox.text = "X: " + playerScript.killCount.ToString();
     }
     void Start()
     {
@@ -34,7 +33,7 @@ public class Enemy_Kill_Count_Display : GENERIC_UI
 
     void UI_UPDATE_High_Score()
     {
-        if (killCount > saveFile.MAX_KILLS && saveFile.MAX_KILLS > 0)
+        if (playerScript.killCount > saveFile.MAX_KILLS && saveFile.MAX_KILLS > 0)
         {
             //newDisplayColor = color.green; DEFAULT IS YELLOW
             newSaveData = true;

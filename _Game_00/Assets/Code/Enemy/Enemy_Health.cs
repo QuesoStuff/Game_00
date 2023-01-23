@@ -65,8 +65,7 @@ public class Enemy_Health : HEALTH
 
     void OnDestroy()
     {
-        // UI
-        Enemy_Kill_Count_Display.killCount = ++player.killCount;
+        player.killCount++;
         ScoreManager.scorechange();
         //mainScript.respawnScript.enemyCreatedCount--;
         Random_Level_Gen.enemy_Count--;

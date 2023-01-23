@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Score_Display : GENERIC_UI
 {
     [SerializeField] internal Color Color_Score_10;
-    [SerializeField] internal static int score;
+    [SerializeField] internal int score;
 
 
 
@@ -16,6 +16,7 @@ public class Score_Display : GENERIC_UI
     new void set()
     {
         base.set();
+        score = ScoreManager.score;
         textBox.text = "Score: " + score.ToString();
         Color_Score_10 = new Color(1.0f, 0.64f, 0.0f, 1);
         newDisplayColor = new Color(0.2673554f, 0.1589534f, 7169812, 1);

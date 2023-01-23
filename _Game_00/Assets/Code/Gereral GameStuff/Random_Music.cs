@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Random_Music : MonoBehaviour
 {
-    [SerializeField] internal AudioClip[] soundtrack;
+    public AudioClip[] soundtrack;
     [SerializeField] internal CameraPlayerFollow camColor;
     [SerializeField] internal bool not_first_track;
 
@@ -21,8 +21,8 @@ public class Random_Music : MonoBehaviour
         set();
         if (!GetComponent<AudioSource>().playOnAwake)
         {
-            // -1 BECAUSE THE LAST TRACK IS A BONUS TRACK
-            playMusic();
+            GetComponent<AudioSource>().clip = soundtrack[Random.Range(0, soundtrack.Length)];
+            GetComponent<AudioSource>().Play();
         }
     }
 
@@ -31,7 +31,8 @@ public class Random_Music : MonoBehaviour
     {
         if (!GetComponent<AudioSource>().isPlaying)
         {
-            playMusic();
+            GetComponent<AudioSource>().clip = soundtrack[Random.Range(0, soundtrack.Length)];
+            GetComponent<AudioSource>().Play();
             if (not_first_track == true)
             {
                 float r = Random.Range(0, 1.0f);
@@ -41,17 +42,6 @@ public class Random_Music : MonoBehaviour
             }
             not_first_track = true;
         }
-    }
-
-    public void playMusic()
-    {
-        GetComponent<AudioSource>().clip = soundtrack[Random.Range(0, soundtrack.Length - 1)];
-        GetComponent<AudioSource>().Play();
-    }
-    public void playPauseMusic()
-    {
-        GetComponent<AudioSource>().clip = soundtrack[soundtrack.Length-1];
-        GetComponent<AudioSource>().Play();
     }
 }
 
