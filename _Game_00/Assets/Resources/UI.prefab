@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 938307523696892252}
   - component: {fileID: 938307523696892241}
   - component: {fileID: 938307523696892242}
-  - component: {fileID: 938307523696892240}
+  - component: {fileID: 9149933332752040825}
   m_Layer: 5
   m_Name: enemy kill count
   m_TagString: Untagged
@@ -293,7 +293,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Kill
---- !u!114 &938307523696892240
+--- !u!114 &9149933332752040825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ec8f323d4e7354ea11d296cc21180b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 938307523696892242}
+  textBox: {fileID: 0}
   displayColor: {r: 0, g: 0, b: 0, a: 0}
   newDisplayColor: {r: 0, g: 0, b: 0, a: 0}
   saveFile:
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 938307524924024505}
   - component: {fileID: 938307524924024510}
   - component: {fileID: 938307524924024511}
-  - component: {fileID: 938307524924024509}
+  - component: {fileID: 8884306827035672362}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -397,7 +397,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Score
---- !u!114 &938307524924024509
+--- !u!114 &8884306827035672362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c3b8aedd418d14d90c5081293ef763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 938307524924024511}
+  textBox: {fileID: 0}
   displayColor: {r: 0, g: 0, b: 0, a: 0}
   newDisplayColor: {r: 0, g: 0, b: 0, a: 0}
   saveFile:
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 938307524942708607}
   - component: {fileID: 938307524942708604}
   - component: {fileID: 938307524942708605}
-  - component: {fileID: 3532920524372146134}
+  - component: {fileID: 4523505079482889899}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -503,7 +503,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Clock
---- !u!114 &3532920524372146134
+--- !u!114 &4523505079482889899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -533,7 +533,6 @@ MonoBehaviour:
   timer_Color_Half: {r: 0, g: 0, b: 0, a: 0}
   timer_Color_Quarter: {r: 0, g: 0, b: 0, a: 0}
   timer_End_Less_Than_60_SEC: {r: 0, g: 0, b: 0, a: 0}
-  Timer: {fileID: 0}
 --- !u!1 &2758328532322956279
 GameObject:
   m_ObjectHideFlags: 0
