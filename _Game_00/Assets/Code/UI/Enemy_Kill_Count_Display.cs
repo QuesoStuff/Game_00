@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyKillCountDisplay : GENERIC_UI
+public class Enemy_Kill_Count_Display : GENERIC_UI
 {
 
 

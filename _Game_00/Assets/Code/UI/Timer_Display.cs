@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimerDisplay : GENERIC_UI
+public class Timer_Display : GENERIC_UI
 {
     [SerializeField] internal int min;
     [SerializeField] internal int sec;

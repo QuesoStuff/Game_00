@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreDisplay : GENERIC_UI
+public class Score_Display : GENERIC_UI
 {
     [SerializeField] internal Color Color_Score_10;
     [SerializeField] internal int score;
