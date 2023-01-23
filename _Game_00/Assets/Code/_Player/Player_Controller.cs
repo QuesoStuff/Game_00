@@ -79,6 +79,9 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
     {
         mainScript.total_Distance_traveled += Vector2.Distance(transform.position, previousLoc);
         previousLoc = transform.position;
+        // UI 
+        Distance_Traveled_Display.traveled = (float) mainScript.total_Distance_traveled;
+        //
     }
 
 
@@ -286,7 +289,10 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
             //bullet_config = bulletObject.GetComponent<BulletScript>();
             bulletObject.GetComponent<BulletScript>().x = x;
             bulletObject.GetComponent<BulletScript>().y = y;
-            mainScript.bullet_shot_Count++;
+            //mainScript.bullet_shot_Count++;
+            // UI updating and increasing the count
+            Bullet_Count_Display.bulletCount = ++mainScript.bullet_shot_Count;
+            //
             if (Random.Range(0.0f, 1.0f) > 0.5f)
                 mainScript.SFX.audioShoot_0();
             else

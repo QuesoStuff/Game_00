@@ -136,6 +136,11 @@ public class BulletScript : MAIN_GAME_OBJECT_SCRIPT
             bulletSpeed = new Vector2(x / 2, y / 2);
             Destroy(gameObject, 1.5f);
         }
+        if (other.CompareTag(CONSTANTS.COLLISION_TAG_WALL))
+        {
+            bulletSpeed = new Vector2(-x, -y);
+
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -158,9 +163,8 @@ public class BulletScript : MAIN_GAME_OBJECT_SCRIPT
         }
         else if (other.CompareTag(CONSTANTS.COLLISION_TAG_ITEM))
         {
-            var temp = x;
-            x = -2 * y;
-            y = -temp / 2;
+            bulletSpeed = new Vector2(-2*x, -2*y);
+
         }
     }
 

@@ -148,11 +148,11 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
---root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Cinemachine.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.Services.Core.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.dll
+--root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.Services.Core.Internal.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.Services.Core.Analytics.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.2D.SpriteShape.Runtime.dll
@@ -322,11 +322,11 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
---root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Cinemachine.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.Services.Core.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.dll
+--root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.Services.Core.Internal.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.Services.Core.Analytics.dll
 --root-assembly=C:\Users\jaf13006\OneDrive - University of Connecticut\Desktop\_Unity_Games\Game_00\_Game_00\Temp\StagingArea\Data\Managed\Unity.2D.SpriteShape.Runtime.dll

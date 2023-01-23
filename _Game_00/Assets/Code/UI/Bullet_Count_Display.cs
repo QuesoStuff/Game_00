@@ -7,7 +7,7 @@ public class Bullet_Count_Display : GENERIC_UI
 {
     //[SerializeField] internal _Player_Script playerScript; // in secs
     //[SerializeField] internal Text textBox;
-    [SerializeField] internal int bulletCount;
+    [SerializeField] internal static int bulletCount;
     [SerializeField] internal Color Color_bulletCount_100;
 
 
@@ -21,7 +21,7 @@ public class Bullet_Count_Display : GENERIC_UI
     }
     public void display()
     {
-        bulletCount = playerScript.bullet_shot_Count;
+        //bulletCount = playerScript.bullet_shot_Count;
         textBox.text = bulletCount.ToString();
         textColor();
     }

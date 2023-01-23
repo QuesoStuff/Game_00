@@ -22,7 +22,7 @@ public class Game_Manager_Script : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log(Application.persistentDataPath);
+        //Debug.Log(Application.persistentDataPath);
     }
 
     // Update is called once per frame

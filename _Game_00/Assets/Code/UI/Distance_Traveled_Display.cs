@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class Distance_Traveled_Display : GENERIC_UI
 {
-    [SerializeField] internal float distance;
+    [SerializeField] internal static float traveled;
+    [SerializeField] internal  float distance;
+
     [SerializeField] internal int RATE;
 
 
@@ -14,12 +16,12 @@ public class Distance_Traveled_Display : GENERIC_UI
     new void set()
     {
         base.set();
-        distance = (float)playerScript.total_Distance_traveled;
+        //distance = (float)playerScript.total_Distance_traveled;
         RATE = 450;
     }
     void display()
     {
-        distance = (float)playerScript.total_Distance_traveled / RATE;
+        distance = traveled / RATE;
         textBox.text = distance.ToString("F2") + "m";
     }
     void Start()
@@ -37,7 +39,7 @@ public class Distance_Traveled_Display : GENERIC_UI
     }
     void UI_UPDATE_High_Score()
     {
-        if (playerScript.total_Distance_traveled > saveFile.MAX_DISTANCE && saveFile.MAX_DISTANCE > 0)
+        if (traveled > saveFile.MAX_DISTANCE && saveFile.MAX_DISTANCE > 0)
         {
             //newDisplayColor = color.green; DEFAULT IS YELLOW
             newSaveData = true;

@@ -30,6 +30,9 @@ public class Player_Health : HEALTH
         setComponent();
         base.set();
         HP_Total_Damage = HP_Total_Heal = 0;
+        //UI
+        HP_Display.currHP = HP;
+        HP_Display.maxHP = HP_Max;
     }
 
 
@@ -48,8 +51,9 @@ public class Player_Health : HEALTH
         }
         else
             HP_Total_Damage += CONSTANTS.HP_DEFAULT_DAMAGE;
-
-
+        //UI
+        HP_Display.currHP = HP;
+        //HP_Display.maxHP = HP_Max;
     }
     public override void HP_damage(int HP_damage)
     {
@@ -61,6 +65,9 @@ public class Player_Health : HEALTH
         }
         else
             HP_Total_Damage += HP_damage;
+        //UI
+        HP_Display.currHP = HP;
+        //HP_Display.maxHP = HP_Max;
     }
     //I_HP_Heal,
     public override void HP_heal()
@@ -73,6 +80,9 @@ public class Player_Health : HEALTH
         }
         else
             HP_Total_Heal += CONSTANTS.HP_DEFAULT_HEALTH;
+        //UI
+        HP_Display.currHP = HP;
+        //HP_Display.maxHP = HP_Max;
     }
     public override void HP_heal(int HP_heal)
     {
@@ -84,31 +94,52 @@ public class Player_Health : HEALTH
         }
         else
             HP_Total_Heal += HP_heal;
+        //UI
+        HP_Display.currHP = HP;
+        //HP_Display.maxHP = HP_Max;
     }
     //I_HP_Full_Restore,
     public override void HP_fullRestore()
     {
         HP_Total_Heal += HP_Max - HP;
         HP = HP_Max;
-
+        //UI
+        HP_Display.currHP = HP;
+        //HP_Display.maxHP = HP_Max;
     }
     //I_HP_Heal_Unbounded,
     public override void HP_heal_unbounded()
     {
         HP += CONSTANTS.HP_DEFAULT_HEALTH;
         HP_Total_Heal += CONSTANTS.HP_DEFAULT_HEALTH;
-
+        //UI
+        HP_Display.currHP = HP;
+        //HP_Display.maxHP = HP_Max;
     }
     public override void HP_heal_unbounded(int HP_heal)
     {
         HP += HP_Heal;
         HP_Total_Heal += HP_Heal;
-
+        //UI
+        HP_Display.currHP = HP;
+        //HP_Display.maxHP = HP_Max;
     }
     //I_HP_Increase_Max_Health
-    //public virtual void HP_increaseMaxHealth()
+    public override void HP_increaseMaxHealth()
+    {
+        HP_Max += CONSTANTS.HP_DEFAULT_MAX_HP_INCREASE;
+        //UI
+        //HP_Display.currHP = HP;
+        HP_Display.maxHP = HP_Max;
+    }
 
-    //public virtual void HP_increaseMaxHealth(int HP_Extra)
+    public override void HP_increaseMaxHealth(int HP_Extra)
+    {
+        HP_Max += HP_Extra;
+        //UI
+        //HP_Display.currHP = HP;
+        HP_Display.maxHP = HP_Max;
+    }
 
     // I_other_Interface METHOD DECLARATION (may not exist)
     public override void HP_Zero()
@@ -117,6 +148,5 @@ public class Player_Health : HEALTH
         StartCoroutine(Level_Controller_Simple.death_Restart());
 
     }
-
 
 }

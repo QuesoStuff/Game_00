@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class HP_Display : GENERIC_UI
 {
 
-    [SerializeField] internal int currHP;
-    [SerializeField] internal int maxHP;
+    [SerializeField] internal static int currHP;
+    [SerializeField] internal static int maxHP;
     [SerializeField] internal Color HP_Color_Full;
     [SerializeField] internal Color HP_Color_Normal;
     [SerializeField] internal Color HP_Color_Half;
@@ -20,8 +20,8 @@ public class HP_Display : GENERIC_UI
     new void set()
     {
         base.set();
-        currHP = playerScript.HP.HP;
-        maxHP = playerScript.HP.HP_Max;
+        //currHP = playerScript.HP.HP;
+        //maxHP = playerScript.HP.HP_Max;
         setTextColor();
         ColorUtility.TryParseHtmlString("00FF00FF", out HP_Color_Full); // green 
         ColorUtility.TryParseHtmlString("FFFFFFFF", out HP_Color_Normal); // white
@@ -54,8 +54,8 @@ public class HP_Display : GENERIC_UI
     }
     void display()
     {
-        currHP = playerScript.HP.HP;
-        maxHP = playerScript.HP.HP_Max;
+        //currHP = playerScript.HP.HP;
+        //maxHP = playerScript.HP.HP_Max;
         setTextColor();
     }
 }
