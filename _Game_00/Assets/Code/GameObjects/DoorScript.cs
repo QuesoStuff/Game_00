@@ -8,6 +8,8 @@ public class DoorScript : MAIN_GAME_OBJECT_SCRIPT
 
     // regarding to animation of the Door
     [SerializeField] internal float opacityMeter;
+    [SerializeField] internal float opacitySpeedFactor;
+
     [SerializeField] internal float opacityMeterShift;
     [SerializeField] internal bool increaseOpacity;
     [SerializeField] internal Color spriteColor;

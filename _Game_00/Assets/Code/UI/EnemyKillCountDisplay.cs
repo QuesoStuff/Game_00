@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyKillCountDisplay : MonoBehaviour
+public class EnemyKillCountDisplay : GENERIC_UI
 {
-    [SerializeField] internal Text textBox;
-    [SerializeField] internal _Player_Script player;
+
 
     // Use this for initialization
-    void set()
+    new void set()
     {
-        textBox.text = "X: " + player.killCount.ToString();
-        textBox.color = Color.white;
-
+        base.set();
+        textBox.text = "X: " + playerScript.killCount.ToString();
+    }
+    void display()
+    {
+        textBox.text = "X: " + playerScript.killCount.ToString();
     }
     void Start()
     {
@@ -23,6 +25,20 @@ public class EnemyKillCountDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        set();
+        display();
+        if (newSaveData == false)
+            UI_UPDATE_High_Score();
+
     }
+
+    void UI_UPDATE_High_Score()
+    {
+        if (playerScript.killCount > saveFile.MAX_KILLS && saveFile.MAX_KILLS > 0)
+        {
+            //newDisplayColor = color.green; DEFAULT IS YELLOW
+            newSaveData = true;
+            setTextColor(newDisplayColor);
+        }
+    }
+
 }

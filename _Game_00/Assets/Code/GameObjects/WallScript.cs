@@ -21,4 +21,11 @@ public class WallScript : MAIN_GAME_OBJECT_SCRIPT
         set();
         resetColor();
     }
+
+    // THIS IS LAZY I SHOULD NOT BE DOING THIS
+        void Update()
+    {
+        gameObject.tag = CONSTANTS.COLLISION_TAG_WALL;
+    }
+
 }

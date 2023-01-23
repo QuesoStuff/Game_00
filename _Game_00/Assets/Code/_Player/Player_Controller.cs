@@ -86,33 +86,7 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
 
 
 
-    public void all_shot()
-    {
-        if (INPUT.input_shoot_up())
-        {
-            bullet_y = 1;
-        }
-        else if (INPUT.input_shoot_down())
-        {
-            bullet_y = -1;
-        }
-        if (INPUT.input_shoot_left())
-        {
-            bullet_x = -1;
-        }
-        else if (INPUT.input_shoot_right())
-        {
-            bullet_x = 1;
-        }
-        if (INPUT.input_shoot_up_release() || INPUT.input_shoot_down_release())
-        {
-            bullet_y = 0;
-        }
-        if (INPUT.input_shoot_left_release() || INPUT.input_shoot_right_release())
-        {
-            bullet_x = 0;
-        }
-    }
+
 
     public void straight_shot()
     {
@@ -120,25 +94,22 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
         {
             bullet_x = 0;
             bullet_y = 1;
-            Debug.Log(" straight UP");
+
         }
         else if (INPUT.input_shoot_down())
         {
             bullet_x = 0;
             bullet_y = -1;
-            Debug.Log(" straight DOWN");
         }
         if (INPUT.input_shoot_left())
         {
             bullet_x = -1;
             bullet_y = 0;
-            Debug.Log(" straight LEFT");
         }
         else if (INPUT.input_shoot_right())
         {
             bullet_x = 1;
             bullet_y = 0;
-            Debug.Log(" straight RIGHT");
         }
     }
     public void diagnol_shot()
@@ -147,39 +118,27 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
         {
             bullet_x = -1;
             bullet_y = 1;
-            Debug.Log(" DI - UP + LEFT ");
         }
-         if (INPUT.input_shoot_up() && INPUT.input_shoot_right())
+        if (INPUT.input_shoot_up() && INPUT.input_shoot_right())
         {
             bullet_x = 1;
             bullet_y = 1;
-            Debug.Log(" DI - UP + RIGHT ");
         }
-         if (INPUT.input_shoot_down() && INPUT.input_shoot_left())
+        if (INPUT.input_shoot_down() && INPUT.input_shoot_left())
         {
             bullet_x = -1;
             bullet_y = -1;
-            Debug.Log(" DI - DOWN + LEFT ");
         }
-         if (INPUT.input_shoot_down() && INPUT.input_shoot_right())
+        if (INPUT.input_shoot_down() && INPUT.input_shoot_right())
         {
             bullet_x = 1;
             bullet_y = -1;
-            Debug.Log(" DI - DOWN + RIGHT");
         }
     }
     public void ultimate_Player_Shooting()
     {
-        // the most reliable approach thus far
-       // straight_shot();
-        diagnol_shot();
-
-        // this sequence does some funky things
-        //diagnol_shot();
-        //straight_shot();
-
-        // latest attempt (the bullet stops when you release buttons)
-        //all_shot();
+        straight_shot();
+        //diagnol_shot(); we will keep it straight for now
     }
     public void ultimate_direction_input()
     {
@@ -244,7 +203,7 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
     public void ultimate_Player_Moving()
     {
         player_Moving();
-        player_Moving_Diagnol();
+        //player_Moving_Diagnol(); for now we will keep it straigth
     }
     public void player_Moving()
     {
@@ -319,8 +278,7 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
     {
         if (INPUT.input_shoot())
         {
-            mainScript.bullet_shot_Count++; // jan 19th
-            Debug.Log("shooting");
+
             var x = bullet_x;
             var y = bullet_y;
             bulletPosition = transform.position;
@@ -336,7 +294,7 @@ public class Player_Controller : MAIN_GAME_OBJECT_SCRIPT
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
-            Debug.Log("TRIGGER RELEASE");
+
         }
     }
     public void charged_Shooting()

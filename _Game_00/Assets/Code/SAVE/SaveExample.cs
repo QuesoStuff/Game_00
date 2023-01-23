@@ -5,43 +5,44 @@ using UnityEngine;
 public class SaveExample : MonoBehaviour
 {
     [SerializeField] internal _Player_Script mainScript;
-    [SerializeField] internal Clock timer;
+    [SerializeField] internal SaveData saveFile;
 
 
     // Update is called once per frame
     void set()
     {
         mainScript = GameObject.Find(CONSTANTS.COLLISION_TAG_PLAYER).GetComponent<_Player_Script>();
-        timer = GameObject.Find("Timer").GetComponent<Clock>();
     }
     void Start()
     {
         set();
         LoadGame();
-        InvokeRepeating("SaveGame", 30f, 30f);
+        //InvokeRepeating("SaveGame", 30f, 30f);
     }
 
     void Update() 
     {
     }
 
-    private void SaveGame() 
+    public void SaveGame() 
     {
-        SaveData saveData = new SaveData();  
-        saveData.MAX_SCORE =  (int)Mathf.Max( saveData.MAX_SCORE , mainScript.Score.score) ;
-        saveData.MAX_DISTANCE =  (int)Mathf.Max( saveData.MAX_DISTANCE , mainScript.total_Distance_traveled) ;
-        saveData.MAX_KILLS =  (int)Mathf.Max( saveData.MAX_KILLS , mainScript.killCount) ;
-        saveData.MAX_TIME_LASTED =  (int)Mathf.Min( saveData.MAX_TIME_LASTED , timer.timeStart) ;
-        SaveManager.SaveGameState(saveData);
+        // make new save file 
+        saveFile.MAX_SCORE =  (int)Mathf.Max( saveFile.MAX_SCORE , ScoreManager.score) ;
+        saveFile.MAX_DISTANCE =  (int)Mathf.Max( saveFile.MAX_DISTANCE , mainScript.total_Distance_traveled) ;
+        saveFile.MAX_KILLS =  (int)Mathf.Max( saveFile.MAX_KILLS , mainScript.killCount) ;
+        saveFile.TIME_LEFT =  (int)Mathf.Min( saveFile.TIME_LEFT , Clock.CurrentTime) ;
+        saveFile.MAX_BULLET_COUNT =  (int)Mathf.Max( saveFile.MAX_BULLET_COUNT , mainScript.bullet_shot_Count) ;
+        SaveManager.SaveGameState(saveFile);
         Debug.Log("Game Saved!"); 
     }
 
 
-    private void LoadGame() {
-        SaveData saveData = SaveManager.LoadGameState();
-        if(saveData != null) 
+    public void LoadGame() 
+    {
+        saveFile = SaveManager.LoadGameState();
+        if(saveFile != null) 
         {
-            mainScript.Score.highScore = saveData.MAX_SCORE;
+            //mainScript.Score.highScore = saveData.MAX_SCORE;
             Debug.Log("Game Loaded!");
         }
     }

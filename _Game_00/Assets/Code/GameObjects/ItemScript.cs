@@ -13,7 +13,6 @@ public class ItemScript : MAIN_GAME_OBJECT_SCRIPT
     [SerializeField] internal BoxCollider2D col;
 
     //[SerializeField] internal RespawnScript respawnScript;
-    [SerializeField] internal Random_Level_Gen respawnScript;
 
 
 
@@ -23,7 +22,6 @@ public class ItemScript : MAIN_GAME_OBJECT_SCRIPT
         explosionRef = Resources.Load("explosion_item");
         ex = GetComponent<EXPLOSION>();
         //respawnScript = GameObject.Find(CONSTANTS.COLLISION_TAG_REPEAT).GetComponent<RespawnScript>();
-        respawnScript = GameObject.Find("GameManager").GetComponent<Random_Level_Gen>();
         col = GetComponent<BoxCollider2D>();
     }
     public new void set()
@@ -66,6 +64,6 @@ public class ItemScript : MAIN_GAME_OBJECT_SCRIPT
     void OnDestroy()
     {
         //respawnScript.itemCreatedCount--;
-        respawnScript.item_Count--;
+        Random_Level_Gen.item_Count--;
     }
 }

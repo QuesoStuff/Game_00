@@ -28,7 +28,7 @@ public class Enemy_Health : HEALTH
         base.set();
         setRef();
         setComponent();
-        damageToPlayer = CONSTANTS.ENEMY_DEFAULT_SPEED;
+        damageToPlayer = CONSTANTS.HP_DEFAULT_DAMAGE;
         HP = Random.Range(3, 5);
     }
     public override void HP_damage()
@@ -66,10 +66,9 @@ public class Enemy_Health : HEALTH
     void OnDestroy()
     {
         player.killCount++;
-        player.Score.scorechange();
+        ScoreManager.scorechange();
         //mainScript.respawnScript.enemyCreatedCount--;
-        mainScript.respawnScript.enemy_Count--;
-
+        Random_Level_Gen.enemy_Count--;
     }
 }
 

@@ -12,6 +12,7 @@ TagManager:
   - bulletKill
   - teleport
   - Clock
+  - SaveData
   layers:
   - Default
   - TransparentFX

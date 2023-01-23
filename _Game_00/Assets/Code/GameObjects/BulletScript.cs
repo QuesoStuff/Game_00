@@ -143,7 +143,6 @@ public class BulletScript : MAIN_GAME_OBJECT_SCRIPT
         if (other.gameObject.tag == CONSTANTS.COLLISION_TAG_ENEMY)
         {
             GetComponent<AudioSource>().Play();
-            Debug.Log("audio played");
             ex.explosionCreate(explosionRef, transform.position, other.gameObject.GetComponent<SpriteRenderer>().color);
             //Destroy(gameObject,  GetComponent<AudioSource>().clip.length);
             Destroy(gameObject, 0.3f);

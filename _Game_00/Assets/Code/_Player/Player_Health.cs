@@ -8,7 +8,6 @@ public class Player_Health : HEALTH
 
     // ADDED SCRIPTS (internal allows to be accessed)
     [SerializeField] internal _Player_Script mainScript;
-    [SerializeField] internal Level_Controller_Simple deathScript;
 
     // FIELDS (Unity types)
 
@@ -24,7 +23,7 @@ public class Player_Health : HEALTH
     void setComponent()
     {
         //mainScript = GameObject.Find(CONSTANTS.COLLISION_TAG_PLAYER).GetComponent<_Player_Script>();
-        mainScript = GetComponent<_Player_Script>(); 
+        mainScript = GetComponent<_Player_Script>();
     }
     public new void set()
     {
@@ -115,7 +114,7 @@ public class Player_Health : HEALTH
     public override void HP_Zero()
     {
         // TRIGGER END
-      deathScript.death_Restart();
+        StartCoroutine(Level_Controller_Simple.death_Restart());
 
     }
 

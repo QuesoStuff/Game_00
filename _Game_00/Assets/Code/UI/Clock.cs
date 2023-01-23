@@ -1,73 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Clock : MonoBehaviour
 {
-    [SerializeField] internal float timeStart; // in secs
-    [SerializeField] internal int min;
-    [SerializeField] internal int sec;
+    [SerializeField] internal static float CurrentTime; // in secs
+    [SerializeField] internal static int START_TIME = CONSTANTS.TIME_IN_LEVEL;
 
-    [SerializeField] internal Text textBox;
-    [SerializeField] internal Level_Controller_Simple Repeat;
-    [SerializeField] internal bool restart;
 
 
     // Use this for initialization
-    void set()
+    public void set()
     {
-        timeStart = CONSTANTS.TIME_IN_LEVEL;
-        convertTime();
-        textBox.text = min.ToString() + " : " + sec.ToString();
-        textBox.color = Color.white;
-        gameObject.tag = CONSTANTS.COLLISION_TAG_CLOCK;
-        restart = true;
+        CurrentTime = START_TIME;
     }
-    void Start()
+    public void Start()
     {
         set();
     }
-
+    public void Update()
+    {
+        updateTIme();
+    }
     // Update is called once per frame
-    void Update()
+    public void updateTIme()
     {
-        if (timeStart > 0)
+        if (CurrentTime > 0)
         {
-            timeStart -= Time.deltaTime;
-            convertTime();
-            textColor();
-            if (sec > 10)
-                textBox.text = min.ToString() + " : " + sec.ToString();
-            else
-                textBox.text = min.ToString() + " : 0" + sec.ToString();
+            CurrentTime -= Time.deltaTime;
         }
-        else if (restart == true)
-        {
-            StartCoroutine(Repeat.Restart());
-            restart = false;
-        }
-    }
-
-
-    void convertTime()
-    {
-        min = (int)timeStart / 60;
-        sec = (int)timeStart % 60;
-    }
-    void textColor()
-    {
-        if (timeStart < 60)
-        {
-            textBox.color = Color.red;
-        }
-        else if (timeStart < CONSTANTS.TIME_IN_LEVEL / 4)
-        {
-            textBox.color = new Color(1.0f, 0.64f, 0.0f , 1);
-        }
-        else if (timeStart < CONSTANTS.TIME_IN_LEVEL / 2)
-        {
-            textBox.color = Color.yellow;
-        }
+        else
+            // may not be possible
+            StartCoroutine(Level_Controller_Simple.timer_end_Restart());
     }
 }

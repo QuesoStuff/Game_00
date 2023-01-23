@@ -34,7 +34,7 @@ public class CameraPlayerFollow : MonoBehaviour
         timeTheFadeStarted = Time.time ;
         Color1 = new Color(0.9339623f, 0.5850481f, 0.5850481f, 1); //wall
         Color2 = new Color(0.238392f, 0.2047437f, 0.4056604f, 0); //background
-        ZOOM = 6;
+        ZOOM = 10;
     }
     // Update is called once per frame
     public void flashingBackGround()

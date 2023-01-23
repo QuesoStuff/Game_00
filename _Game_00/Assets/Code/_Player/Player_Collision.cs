@@ -42,7 +42,7 @@ public class Player_Collision : MAIN_GAME_OBJECT_SCRIPT
     public void collsionWith_Item(Collider2D other)
     {
         ItemScript item = other.gameObject.GetComponent<ItemScript>();
-        mainScript.Score.scoreChange(item.scoreAdded);
+        ScoreManager.scoreChange(item.scoreAdded);
         mainScript.HP.HP_heal(item.HP_Added);
         if (item.HP_Added> item.scoreAdded)
         {

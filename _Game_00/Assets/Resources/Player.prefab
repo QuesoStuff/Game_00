@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: 6600103370646668862}
   - component: {fileID: 5486739754308723632}
   - component: {fileID: 1392282271773727780}
-  - component: {fileID: 4969913889176857564}
   - component: {fileID: 3824425998929352503}
   - component: {fileID: 8476194500900307520}
   - component: {fileID: -4846398198327074567}
@@ -317,7 +316,6 @@ MonoBehaviour:
   spriterender: {fileID: 1513965580848123293}
   Collision: {fileID: 2635835427113480240}
   HP: {fileID: 1392282271773727780}
-  Score: {fileID: 4969913889176857564}
   Color: {fileID: 6600103370646668862}
   Controller: {fileID: 5486739754308723632}
   INPUT: {fileID: 0}
@@ -382,6 +380,7 @@ MonoBehaviour:
   DEFAULT_PLAYER_COLOR_COLLISION: {r: 0, g: 0, b: 0, a: 0}
   DEFAULT_PLAYER_COLOR_HP_UP: {r: 0, g: 0, b: 0, a: 0}
   DEFAULT_PLAYER_COLOR_BIG_SHOOT: {r: 0, g: 0, b: 0, a: 0}
+  DEFAULT_PLAYER_COLOR_BIG_SHOOT_READY: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5486739754308723632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +404,10 @@ MonoBehaviour:
   currSpeed_down: 0
   currSpeed_left: 0
   currSpeed_right: 0
+  currSpeed_up_diagonal: 0
+  currSpeed_down_diagonal: 0
+  currSpeed_left_diagonal: 0
+  currSpeed_right_diagonal: 0
   canDash: 0
   isDashing: 0
   dashSpeed: 0
@@ -441,21 +444,6 @@ MonoBehaviour:
   deathScript: {fileID: 0}
   HP_Total_Damage: 0
   HP_Total_Heal: 0
---- !u!114 &4969913889176857564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2219647011742250539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fee07e1de0728d244a11437e10a8adf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainScript: {fileID: 5030580025073115190}
-  score: 0
-  highScore: 0
 --- !u!114 &3824425998929352503
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ public class _Player_Script : MAIN_GAME_OBJECT_SCRIPT
     // ADDED SCRIPTS (internal allows to be accessed)
     [SerializeField] internal Player_Collision Collision; // engage with game world items
     [SerializeField] internal Player_Health HP;
-    [SerializeField] internal ScoreManager Score;
     [SerializeField] internal Player_Color Color;
     [SerializeField] internal Player_Controller Controller;
     [SerializeField] internal Player_Input INPUT;
@@ -22,14 +21,11 @@ public class _Player_Script : MAIN_GAME_OBJECT_SCRIPT
     [SerializeField] internal float total_Distance_traveled;
 
 
-
-
     void setComponent()
     {
 
         Collision = GetComponent<Player_Collision>();
         HP = GetComponent<Player_Health>();
-        Score = GetComponent<ScoreManager>();
         Color = GetComponent<Player_Color>();
         Controller = GetComponent<Player_Controller>();
         INPUT = GetComponent<Player_Input>();
@@ -48,8 +44,8 @@ public class _Player_Script : MAIN_GAME_OBJECT_SCRIPT
         base.set();
         Collision.set();
         HP.set();
-        Score.set();
-        Controller.set();
+        //Score.set();
+        //ScoreManager.set();
         Color.set();
         INPUT.set();
         SFX.set();
@@ -61,6 +57,9 @@ public class _Player_Script : MAIN_GAME_OBJECT_SCRIPT
     // Gets called before Start()
     void Awake()
     {
+        // somne Gameplay stuff
+
+        Controller.set();
         set();
     }
     // Start is called before the first frame update
@@ -84,6 +83,7 @@ public class _Player_Script : MAIN_GAME_OBJECT_SCRIPT
     // Update is called once per frame
     public void Update()
     {
+        // NEED A GAME OBJECT HANDLER VERY SOON
         //Controller.player_Moving();  ultimate_direction_input
         Controller.ultimate_Player_Moving();
         Controller.playerDash();
@@ -133,8 +133,11 @@ public class _Player_Script : MAIN_GAME_OBJECT_SCRIPT
         {
             Collision.collisionWith_Wall_EXIT(collision);
         }
+        if (collision.gameObject.tag == CONSTANTS.COLLISION_TAG_ENEMY)
+        {
+            Collision.collisionWith_Enemy_EXIT(collision);
+        }
     }
-
 
 
 }

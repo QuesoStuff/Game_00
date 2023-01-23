@@ -30,7 +30,6 @@ public class Enemy_Color : COLOR
         defaultColor.g = (float)mainScript.Health.HP / (float)CONSTANTS.ENEMY_HP_MAX;
         defaultColor.b = (float)mainScript.Controller.speed / (float)CONSTANTS.MOVE_MAX_ENEMY_SPEED;
         defaultColor.a = starting_opacity;
-        //Debug.Log(originalColor);
         spriterender.color = defaultColor;
     }
     void calculateColor1()
@@ -60,11 +59,8 @@ public class Enemy_Color : COLOR
     /*
         public IEnumerator enemyFlash()
         {
-            Debug.Log("flashing start");
             StartCoroutine(base.flash(Color.white, 3.5f));
-            Debug.Log("new Color");
             updateColor();
-            Debug.Log("Reset");
             resetColor();
             yield return null;
         }

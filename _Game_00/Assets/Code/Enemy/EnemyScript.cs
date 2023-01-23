@@ -12,8 +12,6 @@ public class EnemyScript : MAIN_GAME_OBJECT_SCRIPT
     [SerializeField] internal Enemy_Collision Collision;
     [SerializeField] internal Enemy_Input INPUT;
     [SerializeField] internal EXPLOSION ex;
-    //[SerializeField] internal RespawnScript respawnScript;
-    [SerializeField] internal Random_Level_Gen respawnScript;
 
     [SerializeField] internal delegate void funct_ptr();
     [SerializeField] internal funct_ptr moveFunct_ptr;
@@ -40,8 +38,6 @@ public class EnemyScript : MAIN_GAME_OBJECT_SCRIPT
         Collision = GetComponent<Enemy_Collision>();
         INPUT = GetComponent<Enemy_Input>();
         ex = GetComponent<EXPLOSION>();
-        //respawnScript = GameObject.Find(CONSTANTS.COLLISION_TAG_REPEAT).GetComponent<RespawnScript>();
-        respawnScript = GameObject.Find("GameManager").GetComponent<Random_Level_Gen>();
 
     }
 

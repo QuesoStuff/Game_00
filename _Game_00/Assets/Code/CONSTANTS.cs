@@ -5,19 +5,17 @@ using UnityEngine;
 
 public static class CONSTANTS //: MonoBehaviour
 {
-    //  MOVEMENTS (X-axis & Y-axis Movements)
+    // CURRENTLY IN USE 
+    // NOT YET IN USE
+
+
+    //  MOVEMENTS SPEED
+    // LEFT/RIGHT/UP/DOWN
     public const int MOVE_DEFAULT_SPEED = 5;
     public const float MOVE_DEFAULT_SPEED_DIAGONAL = 3.53553390593f; // (5 / sqrt(2))
-
-    public const float DASH_TIME = 0.33f;
-    public const float DASH_TIME_QUICK = 0.05f;
-    public const float CHARGED_SHOT_TIME = 1.8f;
-    public const float CHARGED_SHOT_TIME_READY = 2.3f;
-
-
+    //more detailed movement speeds
     public const int MOVE_DEFAULT_X_AXIS_SPEED = 5;
     public const int MOVE_DEFAULT_Y_AXIS_SPEED = 5;
-
     public const int MOVE_DEFAULT_X_AXIS_SPEED_SLOW = 2;
     public const int MOVE_DEFAULT_Y_AXIS_SPEED_SLOW = 2;
 
@@ -26,18 +24,32 @@ public static class CONSTANTS //: MonoBehaviour
 
     public const int MOVE_DEFAULT_X_AXIS_SPEED_DASH = 6;
     public const int MOVE_DEFAULT_Y_AXIS_SPEED_DASH = 6;
-
     public const int MOVE_NONE = 0;
     public const int MOVE_MAX_ENEMY_SPEED = 7;
-    public const float ENEMY_TO_PLAYER_PROXY = 0.95f;
-
-    // INPUT TIMER VALUES
+    // TIMERS
+    // movement timer
+    public const float DASH_TIME_QUICK = 0.05f;
+    public const float DASH_TIME = 0.33f;
+    // SHOOTING TIMER
+    public const float CHARGED_SHOT_TIME = 1.8f;
+        // INPUT TIMER VALUES
     public const float INPUT_DIRECTION_SHORT_PRESS_TIME = 0.0005f;
     public const float INPUT_DIRECTION_LONG_PRESS_TIME = 0.015f;
     public const float INPUT_ACTION_SHORT_PRESS_TIME_A = 0.0005f;
     public const float INPUT_ACTION_SHORT_PRESS_TIME_B = 0.0005f;
     public const float INPUT_ACTION_LONG_PRESS_TIME_A = 0.015f;
     public const float INPUT_ACTION_LONG_PRESS_TIME_B = 0.015f;
+    public const float CHARGED_SHOT_TIME_READY = 2.3f;
+
+
+
+
+
+
+
+    public const float ENEMY_TO_PLAYER_PROXY = 0.95f;
+
+
     // ANIMATION STATES (IDDLE & RUNNING)
     public const int ANIMATION_LEFT_IDDLE = 0;
     public const int ANIMATION_LEFT_RUN = 1;
@@ -58,7 +70,7 @@ public static class CONSTANTS //: MonoBehaviour
     public const int HP_DEFAULT_DAMAGE = 1;
     public const int HP_DEFAULT_HEALTH = 1;
     public const int HP_DEFAULT_MAX_HP_INCREASE = 1;
-    public const int HP_DEFAULT_STARTER_HP = 250;
+    public const int HP_DEFAULT_STARTER_HP = 10;
     public const int ENEMY_HP_MAX = 10;
     public const int ENEMY_DAMAGE_MAX = 4;
 
@@ -67,8 +79,8 @@ public static class CONSTANTS //: MonoBehaviour
     // regarding collectables (items to search for)
 
     // ITEM GENERAL 
-    public const int TOTAL_ITEMS_TO_COLLECT = 8;
-    public const int PLAYER_NO_COLLECTION = 0;
+    //public const int TOTAL_ITEMS_TO_COLLECT = 8;
+    //public const int PLAYER_NO_COLLECTION = 0;
     // SCORE GENERAL
     public const int SCORE_STARTING_PLAYER_SCORE = 0;
     public const int SCORE_DEFAULT_INCREMENT = 1;
@@ -94,7 +106,7 @@ public static class CONSTANTS //: MonoBehaviour
     public const string COLLISION_TAG_CLOCK = "Clock";
     public const string COLLISION_TAG_REPEAT = "REPEAT";
 
-    // ENEMY MOVING 
+    // ENEMY MOVING CONFIG
     public const int ENEMY_MOVE_COUNT = 47;
     public const int ENEMY_MOVEMENT_COPY = 0;
     public const int ENEMY_MOVEMENT_COPY_DIAGONAL = 1;
@@ -146,7 +158,7 @@ public static class CONSTANTS //: MonoBehaviour
     public const int ENEMY_MOVE_FULL_KEY_3 = 46;
 
 
-    // EXPLOSION PARTICLE AFFECT
+    // EXPLOSION PARTICLE AFFECT (MIN/MAX RANGE)
     public const int EXPLOSION_SIM_SPEED_MIN = 1;
     public const int EXPLOSION_SIM_SPEED_MAX = 5;
     public const float EXPLOSION_SIM_START_SIZE_MIN = 0.1f;
@@ -172,14 +184,14 @@ public static class CONSTANTS //: MonoBehaviour
 
 
 
-    // item default score
+    // item default score (MIN/MAX RANGE)
     public const int ITEM_MINIMUM_SCORE = 1;
     public const int ITEM_MAXIMUM_SCORE = 25;
 
     public const int ITEM_MINIMUM_HP = 1;
     public const int ITEM_MAXIMUM_HP = 8;
 
-    // spawning stuff
+    // SPAWNING STUFF (IN RELATION TO PLAYER'S POSITION)
     public const int ITEM_OFFSET_X_AXIS_MIN = -5;
     public const int ITEM_OFFSET_X_AXIS_MAX = 5;
     public const int ITEM_OFFSET_Y_AXIS_MIN = -5;
@@ -196,30 +208,29 @@ public static class CONSTANTS //: MonoBehaviour
     public const int MAX_ITEMS_COUNT = 25;
     public const int MAX_ENEMY_COUNT = 75;
 
-
-
-
-    // TEST ROOM DIMENSIONS\
-    public const int TESTROOM_X_AXIS_MIN = -70;  //-65 
-    public const int TESTROOM_X_AXIS_MAX = 70;   //65
-    public const int TESTROOM_Y_AXIS_MIN = -70;  //-31
-    public const int TESTROOM_Y_AXIS_MAX = 70;  //31
+    // THE TESTING ROOM SPECS
+    // DURATION OF GAME SESSION (IN RELATION TO THE TESTING ROOM)
+    public const int TIME_IN_LEVEL = 1200;
+    public const int TIME_IN_LEVEL_HALF_WAY = TIME_IN_LEVEL / 2;
+    public const int TIME_IN_LEVEL_LOW = 60;
+    // TEST ROOM DIMENSIONS (SURVIVAL ROOM SURIVVAL MODE)
+    public const int TESTROOM_X_AXIS_MIN = -50;  //-65 
+    public const int TESTROOM_X_AXIS_MAX = 50;   //65
+    public const int TESTROOM_Y_AXIS_MIN = -50;  //-31
+    public const int TESTROOM_Y_AXIS_MAX = 50;  //31
 
     public const int PLAYER_X_AXIS_MIN = -50;  //-65 
     public const int PLAYER_X_AXIS_MAX = 50;   //65
     public const int PLAYER_Y_AXIS_MIN = -50;  //-31
     public const int PLAYER_Y_AXIS_MAX = 50;  //31
 
-
+    // BULLET TYPE COUNT LIMIT
     public const int BULLET_COUNT_0 = 7;
     public const int BULLET_COUNT_1 = 15;
     public const int BULLET_COUNT_2 = 25;
     public const int BULLET_COUNT_3 = 30;
 
-    // DURATION OF GAME SESSION
-    public const int TIME_IN_LEVEL = 1200;
-    public const int TIME_IN_LEVEL_HALF_WAY = TIME_IN_LEVEL / 2;
-    public const int TIME_IN_LEVEL_LOW = 60;
+
 
 
 

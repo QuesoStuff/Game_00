@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Distance_Traveled_Display : MonoBehaviour
+public class Distance_Traveled_Display : GENERIC_UI
 {
-    [SerializeField] internal _Player_Script playerScript; // in secs
-    [SerializeField] internal Text textBox;
     [SerializeField] internal float distance;
     [SerializeField] internal int RATE;
 
 
     // Use this for initialization
-    void setComponent()
+
+    new void set()
     {
-        playerScript = GameObject.Find(CONSTANTS.COLLISION_TAG_PLAYER).GetComponent<_Player_Script>();
-    }
-    void set()
-    {
+        base.set();
         distance = (float)playerScript.total_Distance_traveled;
         RATE = 450;
     }
@@ -35,5 +31,18 @@ public class Distance_Traveled_Display : MonoBehaviour
     void Update()
     {
         display();
+        if (newSaveData == false)
+            UI_UPDATE_High_Score();
+
+    }
+    void UI_UPDATE_High_Score()
+    {
+        if (playerScript.total_Distance_traveled > saveFile.MAX_DISTANCE && saveFile.MAX_DISTANCE > 0)
+        {
+            //newDisplayColor = color.green; DEFAULT IS YELLOW
+            newSaveData = true;
+            setTextColor(newDisplayColor);
+
+        }
     }
 }
